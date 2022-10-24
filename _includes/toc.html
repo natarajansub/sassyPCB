@@ -4,10 +4,30 @@
             <div class="card-body">
                 <h5 class="card-title">Contents:</h5>
                 <ul>
+<<<<<<< Updated upstream
                     {% for section in site.html_pages %}{% if section.nav %}
                     <li><a href="{{ section.url | relative_url }}">{{ section.title }}</a> {% if section.topics %}<small>| topics: {{ section.topics }}</small>{% endif %}</li>
                     {% endif %}{%- endfor -%}
                 </ul>
+=======
+                    {% for org_hash in site.data.orgs %}
+                    {% assign org = org_hash[1] %}
+                      <li>
+                        ({{ org.members | size }} members)
+                        <a href="https://github.com/{{ org.username }}/test-repo">
+                          {{ org.name }}
+                        </a>
+                        
+                        <select name= {{ org.name }} id="{{ org.name }}"></select>
+                        {% for user_details in org.members %}
+                      <!--  {% assign user_details = member[1] %}-->
+                            <option value={{ user_details.github }}>{{ user_details.github }}</option>
+                        {% endfor %}
+                          </select>
+                      </li>
+                    {% endfor %}
+                    </ul>
+>>>>>>> Stashed changes
             </div>
         </div>
     </div>
